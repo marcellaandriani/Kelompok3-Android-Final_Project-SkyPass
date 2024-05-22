@@ -131,4 +131,7 @@ dependencies {
 
     //appintro
     implementation(libs.app.intro)
+
+    //dotsIndicator
+    implementation(libs.dots.indicator)
 }

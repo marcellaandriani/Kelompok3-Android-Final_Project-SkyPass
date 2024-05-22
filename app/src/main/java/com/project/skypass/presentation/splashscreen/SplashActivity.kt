@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.project.skypass.databinding.ActivitySplashBinding
 import com.project.skypass.presentation.main.MainActivity
+import com.project.skypass.presentation.onboarding.OnboardingActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -29,13 +30,22 @@ class SplashActivity : AppCompatActivity() {
     private fun directUser() {
         lifecycleScope.launch {
             delay(2000)
-            navigateToMain()
+            //navigateToMain()
+            navigateToOnboarding()
         }
     }
 
     private fun navigateToMain() {
         startActivity(
             Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            },
+        )
+    }
+
+    private fun navigateToOnboarding() {
+        startActivity(
+            Intent(this, OnboardingActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             },
         )
