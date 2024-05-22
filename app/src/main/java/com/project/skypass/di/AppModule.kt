@@ -1,8 +1,12 @@
 package com.project.skypass.di
 
 import android.content.SharedPreferences
+import com.project.skypass.data.datasource.auth.AuthDataStore
+import com.project.skypass.data.datasource.auth.AuthDataStoreImpl
 import com.project.skypass.data.datasource.preference.PrefDataSource
 import com.project.skypass.data.datasource.preference.PrefDataSourceImpl
+import com.project.skypass.data.repository.auth.AuthRepository
+import com.project.skypass.data.repository.auth.AuthRepositoryImpl
 import com.project.skypass.data.repository.pref.PrefRepository
 import com.project.skypass.data.repository.pref.PrefRepositoryImpl
 import com.project.skypass.data.source.local.pref.UserPreference
@@ -38,11 +42,17 @@ object AppModule {
         single<PrefDataSource> {
             PrefDataSourceImpl(get())
         }
+        single<AuthDataStore> {
+            AuthDataStoreImpl(get())
+        }
     }
 
     private val repositoryModule = module {
         single<PrefRepository>{
             PrefRepositoryImpl(get())
+        }
+        single<AuthRepository> {
+            AuthRepositoryImpl(get())
         }
     }
 
