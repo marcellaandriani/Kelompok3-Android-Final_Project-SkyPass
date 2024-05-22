@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FinalProject</string>
+    <string name="app_name">SkyPass</string>
     <string name="home">Beranda</string>
     <string name="history">Riwayat</string>
     <string name="notification">Notifikasi</string>
