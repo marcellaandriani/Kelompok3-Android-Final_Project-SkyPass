@@ -8,7 +8,7 @@ interface AuthRepository {
     fun doLogin(
         email: String,
         password: String
-    ): Flow<ResultWrapper<Boolean>>
+    ): Flow<ResultWrapper<String>>
 
     fun doRegister(
         name: String,
@@ -16,10 +16,10 @@ interface AuthRepository {
         password: String,
         phoneNumber: String,
         role: String
-    ): Flow<ResultWrapper<Boolean>>
+    ): Flow<ResultWrapper<String>>
 
     fun doVerify(
         email: String,
         otp: String
-    ): Flow<ResultWrapper<Boolean>>
+    ): Flow<ResultWrapper<String>>
 }

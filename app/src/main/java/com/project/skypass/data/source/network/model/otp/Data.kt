@@ -17,9 +17,9 @@ data class Data(
     @SerializedName("password")
     var password: String?,
     @SerializedName("phone_number")
-    var phoneNumber: Any?,
-    @SerializedName("refresh_token")
-    var refreshToken: Any?,
+    var phoneNumber: String?,
+    /*@SerializedName("refresh_token")
+    var refreshToken: Any?,*/
     @SerializedName("role")
     var role: String?,
     @SerializedName("updatedAt")

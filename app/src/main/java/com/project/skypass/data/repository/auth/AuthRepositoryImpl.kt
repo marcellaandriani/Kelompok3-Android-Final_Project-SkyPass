@@ -9,14 +9,14 @@ import com.project.skypass.utils.proceedFlow
 import kotlinx.coroutines.flow.Flow
 
 class AuthRepositoryImpl(private val dataStore: AuthDataStore): AuthRepository {
-    override fun doLogin(email: String, password: String): Flow<ResultWrapper<Boolean>> {
+    override fun doLogin(email: String, password: String): Flow<ResultWrapper<String>> {
         return proceedFlow {
-            (dataStore.doLogin(
+            dataStore.doLogin(
                 LoginRequestResponse(
                     email = email,
                     password = password
                 )
-            ).status ?: false) as Boolean
+            ).status ?: "failed"
         }
     }
 
@@ -26,9 +26,9 @@ class AuthRepositoryImpl(private val dataStore: AuthDataStore): AuthRepository {
         password: String,
         phoneNumber: String,
         role: String,
-    ): Flow<ResultWrapper<Boolean>> {
+    ): Flow<ResultWrapper<String>> {
         return proceedFlow {
-            (dataStore.doRegister(
+            dataStore.doRegister(
                 RegisterRequestResponse(
                     name = name,
                     email = email,
@@ -36,18 +36,18 @@ class AuthRepositoryImpl(private val dataStore: AuthDataStore): AuthRepository {
                     phoneNumber = phoneNumber,
                     roles = role
                 )
-            ).status ?: false) as Boolean
+            ).status ?: "failed"
         }
     }
 
-    override fun doVerify(email: String, otp: String): Flow<ResultWrapper<Boolean>> {
+    override fun doVerify(email: String, otp: String): Flow<ResultWrapper<String>> {
         return proceedFlow {
-            (dataStore.doVerify(
+            dataStore.doVerify(
                 VerifyRequestResponse(
                     email = email,
                     otp = otp
                 )
-            ).status ?: false) as Boolean
+            ).status ?: "failed"
         }
     }
 }

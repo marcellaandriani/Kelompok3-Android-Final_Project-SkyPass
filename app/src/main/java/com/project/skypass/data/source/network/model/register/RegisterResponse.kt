@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 @Keep
 data class RegisterResponse(
     @SerializedName("data")
-    var `data`: Data?,
+    var data: Data?,
     @SerializedName("status")
     var status: String?
 )
